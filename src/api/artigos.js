@@ -65,7 +65,7 @@ router.post("/", async (req, res) => {
     const data_publicacao = new Date();
 
     // Consulta CQL para inserir um novo artigo
-    const artigoQuery =
+    const query =
       "INSERT INTO facens.artigos (autor_id, id, titulo, categoria, conteudo, data_publicacao, tags, visualizacoes) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
     const params = [
       autor_id,
@@ -79,7 +79,7 @@ router.post("/", async (req, res) => {
     ];
 
     // Executa a consulta
-    await client.execute(artigoQuery, params, { prepare: true });
+    await client.execute(query, params, { prepare: true });
 
     // Retorna uma mensagem de sucesso
     res.status(201).json({ message: "Artigo salvo com sucesso!" });

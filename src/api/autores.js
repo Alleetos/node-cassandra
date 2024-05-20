@@ -38,6 +38,7 @@ router.get("/", async (req, res) => {
 // Rota para obter os IDs dos autores dos últimos 10 artigos publicados
 router.get("/ultimos", async (req, res) => {
   try {
+    // SELECT autor FROM artigos ORDER BY data_criacao DESC LIMIT 10;
     // Consulta CQL para selecionar os últimos 10 artigos publicados da materialized view
     const queryArtigos =
       "SELECT autor_id FROM facens.artigos_by_data_publicacao LIMIT 10";
@@ -61,9 +62,5 @@ router.get("/ultimos", async (req, res) => {
       .json({ error: "Erro ao buscar IDs dos autores dos últimos artigos" });
   }
 });
-
-module.exports = router;
-
-module.exports = router;
 
 module.exports = router;

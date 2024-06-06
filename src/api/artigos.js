@@ -40,8 +40,6 @@ router.get("/categoria/:categoria", async (req, res) => {
   }
 });
 
-module.exports = router;
-
 // Rota para salvar um novo artigo
 router.post("/", async (req, res) => {
   try {
@@ -109,7 +107,7 @@ router.put("/:id", async (req, res) => {
 
     // Consulta CQL para atualizar o artigo
     const updateQuery =
-      "UPDATE facens.artigos SET titulo = ?, categoria = ? conteudo = ?, tags = ? WHERE id = ?";
+      "UPDATE facens.artigos SET titulo = ?, categoria = ?, conteudo = ?, tags = ? WHERE id = ?";
     const params = [titulo, categoria, conteudo, tags, id];
 
     // Executa a consulta de atualização
